@@ -1,9 +1,18 @@
 fn main()
 {
-  let map = String::from("Old map");
+  let treasures = ["Gold", "Silver", "Bronze", "Diamond","Emerald","Ruby"];
+  let mut energy = 5;
 
-  let borrow_map = &map;
-  let mut converted_map = borrow_map.to_string();
-  converted_map.push_str(" to new map");
-  println!("Converted map: {}", converted_map);
+  for treasure in treasures.iter(){
+    if energy <= 0 { 
+      println!("Out of energy");
+      break;
+    } else if treasure == &"Ruby" {
+      println!("Found a Ruby! {}", treasure);
+      break;
+    } else {
+      energy -= 1;
+      println!("Found a treasure! {}, energy : {}", treasure, energy);
+    }
+  }
 }
