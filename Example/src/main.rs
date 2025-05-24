@@ -1,7 +1,30 @@
+use std::collections::HashMap;
+// fn main()
+// {  
+//   let mut treasures = HashMap::new();
+//   treasures.insert("gold", 100);
+//   treasures.insert("silver", 50);
+
+//   if let Some(gold) = treasures.get("gold") {
+//       println!("Gold: {}", gold);
+//   } else {
+//       println!("No gold found.");
+//   }
+// }
+
 fn main()
 {  
-  let  treasures = vec![100, 200, 300, 400, 500];
-  let double : Vec<i32>= treasures.iter().map(|x| x * 2 ).collect();
-  println!("Treasures: {:?}", treasures);
-  println!("Doubled Treasures: {:?}", double);
+  let mut treasures:HashMap<&str, i32>   = HashMap::new();
+  treasures.insert("gold", 100);
+  treasures.insert("silver", 50);
+
+
+  treasures.get("Ruby").unwrap_or(&0); // Set Default Value when Key Not Found
+  if let Some(gold) = treasures.get_mut("gold") {
+    println!("Gold: {}", gold);
+      *gold = *gold * 2 ;
+      println!("Gold: {}", gold);
+  } else {
+      println!("No gold found.");
+  }
 }
